@@ -1,0 +1,197 @@
+body {
+    padding-top: 56px;
+    margin: 0;
+    background: #ebe9e9;
+  }
+  /*--- navigation bar ---*/
+  .navbar {
+    background:#292828e5;
+  }
+  .nav-link,
+  .navbar-brand {
+    color: #fff;
+    cursor: pointer;
+  }
+  .nav-link {
+    margin-right: 1em !important;
+  }
+  .nav-link:hover {
+    color:#1bcdd3 !important;
+  }
+  .navbar-collapse {
+    justify-content: flex-end;
+  }
+  /*--- landing page ---*/
+  .header {
+    background-image: url('../images/bkg-2.png');
+    background-size: contain;
+    background-position: bottom;
+    background-repeat: no-repeat;
+    position: relative;
+  }
+  .overlay {
+    position: absolute;
+    min-height: 100%;
+    min-width: 100%;
+    left: 0;
+    top: 0;
+    background: rgba(0, 0, 0, 0.5);
+  }
+  .description {
+    left: 50%;
+    position: absolute;
+    top: 45%;
+    transform: translate(-50%, -55%);
+    text-align: center;
+  }
+  .description h1 {
+    color: #9df7fa;
+  }
+  .description p {
+    color: #fff;
+    font-size: 1.3rem;
+    line-height: 1.5;
+  }
+  .description button {
+    border:1px solid #097d81;
+    background:#097d81;
+    border-radius: 0;
+    color:#fff;
+  }
+  .description button:hover {
+    border:1px solid #fff;
+    background:#fff;
+    color:#000;
+  }
+  .features {
+    margin: 4em auto;
+    padding: 1em;
+    position: relative;
+  }
+  .feature-title {
+    color: #333;
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+  }
+  .features img {
+    -webkit-box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
+    -moz-box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
+    box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
+    margin-bottom: 16px;
+  }
+.features .form-control,
+.features input {
+    border-radius: 0;
+}
+.features .btn {
+  background-color: #097d81;
+  border: 1px solid #097d81;
+  color: #fff;
+  margin-top: 20px;
+}
+.features .btn:hover {
+  background-color: #333;
+  border: 1px solid #333;
+}
+.page-footer {
+  background-color: #222;
+  color: #ccc;
+  padding: 60px 0 30px;
+}
+.footer-copyright {
+  color: #666;
+  padding: 40px 0;
+}
+@media (max-width: 575.98px) {
+  .description {
+    left: 0;
+    padding: 0 15px;
+    position: absolute;
+    top: 10%;
+    transform: none;
+    text-align: center;
+  }
+  
+  .description h1 {
+    font-size: 2em;
+  }
+  
+  .description p {
+    font-size: 1.2rem;
+  }
+  
+  .features {
+    margin: 0;
+  }
+}
+/*--- Product page ---*/
+.products {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 50px;
+  padding-bottom: 100px;
+  text-align: center;
+}
+/** CSS para botones cool  **/
+/** Flatted button %placeholder **/
+.btn-iconed.btn-flat {
+  border-radius: 0rem;
+  /* margin-right: 2rem; Icon sample spacing */
+}
+
+/** Rounded button **/
+.btn-rounded {
+  border-radius: 5rem;
+  /* margin-right: 2rem;  Icon sample spacing */
+}
+
+/** Button Iconed **/
+.btn-iconed {
+  -webkit-transition: .15s ease-in-out;
+  transition: .15s ease-in-out;
+  padding-left: 1.3rem;
+  padding-right: 1.5rem;
+  /** Icons Classes **/
+  /** -- Open Iconic, Font Awesome -- **/
+  /** Span Class **/
+  /** -- Icons on Hover properties -- **/
+  /** Flatted button **/
+}
+.btn-iconed [class~=oi], .btn-iconed [class~=fa],
+.btn-iconed [class~=typcn]::before,
+.btn-iconed [class~=mdi]::before,
+.btn-iconed [class~=icon]::before {
+  opacity: 0;
+  -webkit-transform-origin: left right;
+          transform-origin: left right;
+  -webkit-transform: translateX(-10px) scale(1.25);
+          transform: translateX(-10px) scale(1.25);
+  -webkit-transition: .15s ease-out;
+  transition: .15s ease-out;
+}
+.btn-iconed [class=spn] {
+  position: relative;
+  left: -9px;
+  -webkit-transform-origin: left right;
+          transform-origin: left right;
+  -webkit-transform: translateX(-9px);
+          transform: translateX(-9px);
+  -webkit-transition: .20s ease-in-out;
+  transition: .20s ease-in-out;
+}
+
+.btn-iconed:hover [class~=oi], .btn-iconed:hover [class~=fa],
+.btn-iconed:hover [class~=mdi]::before, .btn-iconed:hover [class~=icon]::before, .btn-iconed:hover [class~="typcn"]::before {
+  opacity: 1;
+  -webkit-transform: translateX(0px) scale(0.75);
+          transform: translateX(0px) scale(0.75);
+}
+.btn-iconed:hover [class=spn] {
+  left: 0px;
+}
+.btn{
+  font-size: 1.1rem;
+}

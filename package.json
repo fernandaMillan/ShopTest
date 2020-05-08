@@ -1,0 +1,33 @@
+{
+  "name": "Project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon src"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fernandaMillan/ShopTest.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fernandaMillan/ShopTest/issues"
+  },
+  "homepage": "https://github.com/fernandaMillan/ShopTest#readme",
+  "dependencies": {
+    "animate.css": "^4.0.0",
+    "ejs": "^3.1.2",
+    "express": "^4.17.1",
+    "express-myconnection": "^1.0.4",
+    "install": "^0.13.0",
+    "morgan": "^1.10.0",
+    "mysql": "^2.18.1",
+    "npm": "^6.14.5"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.3"
+  }
+}
