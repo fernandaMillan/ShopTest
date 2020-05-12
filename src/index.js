@@ -9,7 +9,7 @@ const app = express();
 //settings
 app.set('port', process.env.PORT || 3000);
 app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname, 'views'));
+app.set('views', path.join(__dirname, 'views')); 
 app.set('public', path.join(__dirname, 'public'));
 app.engine('html', require('ejs').renderFile); //usar archivos html usando ejs
 
@@ -20,7 +20,7 @@ app.use(myConnection(mysql, {
     user: 'root', 
     password: '',
     port: 3306,
-    database: 'database_petshop'
+    database: 'database_petshoptest'
 }, 'single' ));
 
 //Para entender datos de los formularios
