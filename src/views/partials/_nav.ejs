@@ -4,8 +4,8 @@
     <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
       <div class="container">
         <!-- Logo -->
-          <a class="navbar-brand" href="index.html">
-            <img src="images/logo3.png" width="45" alt="" class="d-inline-block align-middle mr-2">
+          <a class="navbar-brand" href="/index.html">
+            <img src="/images/logo3.png" width="45" alt="" class="d-inline-block align-middle mr-2">
             <span>PetShop</span>
           </a>
           <!-- toggler: menú que se expande y colapsa dependiendo de la resolución -->
@@ -18,18 +18,24 @@
                 <a class="nav-link" href="#">About</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="products.html">Products</a>
+                <a class="nav-link" href="/products.html">Products</a>
               </li>
               <li class="nav-item">
                   <a class="nav-link" href="#">Adopt</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="contact.html">Contact</a>
+                  <a class="nav-link" href="/contact.html">Contact</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Cart</a>
+                  <a class="nav-link icart" href="/cart.html">
+                    <i class="fa fa-shopping-cart fa-2x"></i>
+                    <% if(locals.cart){%>
+                    <span class="badge badge-pill badge-warning summary"><%= locals.cart.totalItems%></span>
+                    <%}%>
+                  </a>
                 </li>
             </ul>
           </div>
         </div>
       </nav>
+      <%- messages('messages', locals) %>

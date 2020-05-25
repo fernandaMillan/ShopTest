@@ -19,9 +19,13 @@
   "homepage": "https://github.com/fernandaMillan/ShopTest#readme",
   "dependencies": {
     "animate.css": "^4.0.0",
+    "connect-flash": "^0.1.1",
     "ejs": "^3.1.2",
     "express": "^4.17.1",
+    "express-messages": "^1.0.1",
     "express-myconnection": "^1.0.4",
+    "express-mysql-session": "^2.1.4",
+    "express-session": "^1.17.1",
     "install": "^0.13.0",
     "morgan": "^1.10.0",
     "mysql": "^2.18.1",

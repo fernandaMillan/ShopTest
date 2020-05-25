@@ -1,0 +1,116 @@
+<%- include('partials/_header') -%>
+<%- include('partials/_nav') -%>
+<div class="px-4 px-lg-0 my-5">
+    <div class="pb-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 p-5 bg-white rounded shadow-sm mb-5">
+  
+            <!-- Shopping cart table -->
+        <% if(!products[0]){ %>
+          <span class="text-muted font-weight-normal font-italic d-block text-center">No tienes articulos en tu carrito </span>
+          <% }else{%>
+            
+            <div class="table-responsive">
+              <table class="table">
+                <div>
+                  <tr>
+                    <th scope="col" class="border-0 bg-light">
+                      <div class="p-2 px-3 text-uppercase">Producto</div>
+                    </th>
+                    <th scope="col" class="border-0 bg-light">
+                      <div class="py-2 text-uppercase">Precio</div>
+                    </th>
+                    <th scope="col" class="border-0 bg-light">
+                      <div class="py-2 text-uppercase">Cantidad</div>
+                    </th>
+                    <th scope="col" class="border-0 bg-light">
+                      <div class="py-2 text-uppercase">Eliminar</div>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% for(var i=0; i <products.length; i++){ %>
+                  <tr>
+                    <th scope="row" class="border-0">
+                      <div class="p-2">
+                        <img src="/images/Products/<%=products[i]['item'].id%>.png" alt="" width="70" class="img-fluid rounded shadow-sm">
+                        <div class="ml-3 d-inline-block align-middle">
+                          <h5 class="mb-0"> <a href="href='productPage.html/<%=products[i]['item'].id%>'" class="text-dark d-inline-block align-middle"><%= products[i]['item'].productName%></a></h5><span class="text-muted font-weight-normal font-italic d-block">Category: </span>
+                        </div>
+                      </div>
+                    </th>
+                    <td class="border-0 align-middle"><strong>$<%= products[i].price%> pesos</strong></td>
+                    <td class="border-0 align-middle"> 
+                      <a class="text-dark btn" href="/cart/update/<%=products[i]['item'].id%>/remove"><i class="fa fa-minus"></i></i></a>
+                        <strong> <%= products[i].quantity%> </strong>
+                      <a class="text-dark btn" href="/cart/update/<%=products[i]['item'].id%>/add"><i class="fa fa-plus"></i></a>
+                    </td>
+                    <td class="border-0 align-middle"><a href="/cart/update/<%=products[i]['item'].id%>/delete" class="text-dark btn"><i class="fa fa-trash"></i></a></td>
+                  </tr>
+                  <% } %>
+                </tbody>
+              </table>
+            </div>
+            <!-- End -->
+            
+          </div>
+        </div>
+        <div class="row py-5 p-4 bg-white rounded shadow-sm">
+          <div class="col-lg-6">
+            <div class="bg-light rounded-pill px-4 py-3 text-uppercase font-weight-bold">Código de cupón</div>
+            <div class="p-4">
+              <p class="font-italic mb-4">Si tienes un cupón, ingresalo aquí </p>
+              <div class="input-group mb-4 border rounded-pill p-2">
+                <input type="text" placeholder="Aplicar cupón" aria-describedby="button-addon3" class="form-control border-0">
+                <div class="input-group-append border-0">
+                  <button id="button-addon3" type="button" class="btn btn-dark px-4 rounded-pill"><i class="fa fa-gift mr-2"></i>Aplicar cupón</button>
+                </div>
+              </div>
+            </div>
+            <div class="bg-light rounded-pill px-4 py-3 text-uppercase font-weight-bold">Instrucciones para el vendedor</div>
+            <div class="p-4">
+              <p class="font-italic mb-4">Si tienes alguna información adicional para el vendedor, puedes escribirlo en el cuadro de abajo</p>
+              <textarea name="" cols="30" rows="2" class="form-control"></textarea>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="bg-light rounded-pill px-4 py-3 text-uppercase font-weight-bold">Resumen de la compra </div>
+            <div class="p-4">
+              <p class="font-italic mb-4">El envio y gastos adicionales están dentro del total de la orden</p>
+              <ul class="list-unstyled mb-4">
+                <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Subtotal </strong><strong>$ <%= totalPrice%></strong></li>
+                <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Envio</strong><strong>$10.00</strong></li>
+                <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Tax</strong><strong>$0.00</strong></li>
+                <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Total</strong>
+                  <h5 class="font-weight-bold">$<%= totalPrice+10%></h5>
+                </li>
+                      <script
+                      src="https://www.paypal.com/sdk/js?client-id=AS-UuW6EEB1qmOzs7TrVgRDVRpJZ8JMnFNnZJH7Ao_2S0_6nq6vTuV7fYjdWAbTtw-5CN4UBenxrP3z1&currency=MXN"> 
+                      </script>
+                      <div id="paypal-button-container"></div>
+
+                      <script>
+                        paypal.Buttons({
+                          createOrder: function(data, actions) {
+                            // This function sets up the details of the transaction, including the amount and line item details.
+                            return actions.order.create({
+                              purchase_units: [{
+                                amount: {
+                                  value: '<%= totalPrice+10%>'
+                                }
+                              }]
+                            });
+                          }
+                        }).render('#paypal-button-container');
+                      </script>
+
+
+            </div>
+            <%} %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <%- include('partials/_footer') -%>

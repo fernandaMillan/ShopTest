@@ -194,4 +194,20 @@ body {
 }
 .btn{
   font-size: 1.1rem;
+  margin-bottom: .8rem;
+  margin-top: .8rem;
+}
+
+.icart {
+  position: relative;
+}
+
+.summary {
+  position: absolute;
+  font-size: 12px;
+  margin: -8px;
+}
+
+.navbar{
+  font-size: 1.1em;
 }

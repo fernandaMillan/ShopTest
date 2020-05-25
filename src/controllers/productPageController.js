@@ -1,15 +1,17 @@
 const controller = {};
 
 controller.list = (req, res) =>{
+    const id = req.params.product;
+    
     req.getConnection((err, conn) =>{
-        conn.query('select * from products', (err, products) =>{
+        conn.query('Select * from products where id = ?', [id],(err, product) =>{
             if(err){
                 res.json(err);
             }
-            console.log(products);
+            console.log(product);
             res.render('productPage.html', {
-                data:products,
-                title: 'Product Page Page'
+                data:product,
+                title: 'Product Page'
             });
         });
     });

@@ -3,27 +3,37 @@
    <!-- Page Content -->
     <div class="container">
         <div class="row">
-            <!-- filter list -->
-            <div class="col-lg-3">
+            <!-- Category list -->
+          <div class="col-lg-3">
             <h1 class="my-4">PetShop</h1>
             <div class="list-group">
-                <a href="#" class="list-group-item text-secondary">Dogs</a>
-                <a href="#" class="list-group-item text-secondary">Cats</a>
-                <a href="#" class="list-group-item text-secondary">Fish</a>
+              <a href="#" class="list-group-item text-secondary">Dogs</a>
+              <a href="#" class="list-group-item text-secondary">Cats</a>
+              <a href="#" class="list-group-item text-secondary">Fish</a>
             </div>
-            </div>
+          </div>
             <!-- Product -->
             <div class="col-lg-6">
-                <div class="card mt-4">
-                    <img class="card-img-top img-fluid" src="images/Products/product-1.png" alt="">
-                    <div class="card-body">
-                        <h3 class="card-title">Producto 1</h3>
-                        <h4>$24.99</h4>
-                        <a href="#" class="btn btn-info">Add to cart</a>
-                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente dicta fugit fugiat hic aliquam itaque facere, soluta. Totam id dolores, sint aperiam sequi pariatur praesentium animi perspiciatis molestias iure, ducimus!</p>
-                        <span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9734;</span>
-                        4.0 stars
-                    </div>
+                <div class="card mt-4 px-3">
+                    <img class="card-img-top img-fluid col-lg-9 col-md-6 col-sm-8 mx-auto" src="/images/Products/<%= data[0].id%>.png" alt="">
+                    <form action="/add/<%= data[0].id%>" method="get" class="card-body">
+                        <% if(data[0].stock >= 1) { %>
+                            <small class="text-success">Disponible</small>
+                        <%}else{%>
+                            <small class="text-muted">No disponible por el momento</small>
+                        <%}%>
+                        <h3 class="card-title"><%= data[0].productName%></h3>
+                        <h4 class="text-secondary">$<%= data[0].price%> pesos</h4>
+                        <% if(data[0].stock >= 1) { %>
+                            <button class="btn btn-iconed btn-lg btn-rounded btn-outline-primary" role="button" type="submit" >
+                              <i class="fa fa-chevron-right"></i> <span class="spn">Comprar</span>
+                        <%}else{%>
+                            <button class="btn btn-iconed btn-lg btn-rounded btn-outline-secondary btn-block" role="button">
+                              <span>No disponible</span>
+                        <%}%>
+                            </button> 
+                        <p class="card-text"><%= data[0].description%></p>
+                      </form>
                 </div>
 
                 <div class="card card-outline-secondary my-4">
@@ -43,13 +53,11 @@
             </div>
             <div class="col-lg-3">
                 <div class="card mt-4">
-                    <img class="card-img-top img-fluid" src="images/Anuncios/Anuncio1.jpg" alt="">
+                    <img class="card-img-top img-fluid" src="/images/Anuncios/Anuncio1.jpg" alt="">
                     <div class="card-body">
                         <h3 class="card-title">Veterinaria</h3>
-                        <a href="#" class="btn btn-light">Add to cart</a>
+                        <a href="#" class="btn btn-info">Contactanos!</a>
                         <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente dicta fugit fugiat hic aliquam itaque facere, soluta. Totam id dolores, sint aperiam sequi pariatur praesentium animi perspiciatis molestias iure, ducimus!</p>
-                        <span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9734;</span>
-                        4.0 stars
                     </div>
                 </div>    
             </div>
