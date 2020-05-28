@@ -25,6 +25,9 @@ module.exports = function Cart(cart) {
         this.items[id].price -=this.items[id].item.price;
         this.totalItems --;
         this.totalPrice -= this.items[id].item.price;
+        if(this.totalItems == 0){
+            delete this.items[id];
+        }
     };
 
     this.addOne = function(id) {
@@ -40,5 +43,11 @@ module.exports = function Cart(cart) {
             arr.push(this.items[id]);
         }
         return arr;
+    };
+    this.removeItems = function() {
+        this.items =  {};
+        this.totalItems = 0;
+        this.totalPrice = 0;
+        return this;
     };
 };

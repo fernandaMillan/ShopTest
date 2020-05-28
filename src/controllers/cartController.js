@@ -2,7 +2,7 @@ const Cart = require('../models/cart');
 
 const controller = {};
 
-controller.add = (req,res, next) =>{
+controller.add = (req,res, ) =>{
     var productId = req.params.id;
     var cart = new Cart(req.session.cart ? req.session.cart : {});
     req.getConnection((err, conn) =>{
@@ -32,8 +32,7 @@ controller.cart = (req, res) =>{
         });
       }
       var cart = new Cart(req.session.cart);
-      console.log(req.session.cart.totalItems);
-      
+      //req.session.cart = {};
       res.render('cart.html', {
         title: 'Carrito',
         products: cart.getItems(),
@@ -56,6 +55,7 @@ controller.removeOne = (req, res) =>{
 
   cart.removeOne(productId);
   req.session.cart = cart;
+  console.log(req.session.cart);
   res.redirect('/cart.html');
 };
 
@@ -66,6 +66,20 @@ controller.addOne = (req, res) =>{
   cart.addOne(productId);
   req.session.cart = cart;
   res.redirect('/cart.html');
+};
+
+controller.ppResp = (req, res) =>{
+var response =req.params.resp;
+if(response == "success"){
+  req.flash('success', 'Compra completada te llegará una notificación a tu correo');
+  var cart = new Cart(req.session.cart ? req.session.cart : {});
+  cart.removeItems();
+  req.session.cart = cart;
+}else{
+  req.flash('danger', 'Compra cancelada');
+}
+
+res.redirect('/cart.html');
 };
 
 module.exports = controller;

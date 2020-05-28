@@ -19,14 +19,17 @@ router.get('/contact.html', contactController.list);
 const adoptController = require('../controllers/adoptController'); 
 router.get('/adopt.html', adoptController.list); 
 
-
 const cartController = require('../controllers/cartController'); 
 router.get('/add/:id', cartController.add); 
 router.get('/cart.html', cartController.cart); 
 router.get('/cart/update/:id/delete', cartController.remove); 
 router.get('/cart/update/:id/remove', cartController.removeOne); 
 router.get('/cart/update/:id/add', cartController.addOne); 
+router.get('/cart/response/:resp', cartController.ppResp); 
 
+
+const mailController = require('../controllers/mailController');
+router.get('/sendMail', mailController.sendEmail);
 
 //const sessions = require('../controllers/sessionController');
 //router.get('/signIn', sessionController.get_identification);
